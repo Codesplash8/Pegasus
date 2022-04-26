@@ -1,0 +1,37 @@
+Overview of the main system direction and parts
+-------------------------------------------------
+
+
+System consists of one main board which is connected to a screen for setting values on-the-fly and show data.
+Main board can connect to other boards in the future using CAN bus.
+
+Main board needs to have:
+- Digital and analog I/O for discrete signals (12V signals)
+- CAN bus transciever
+- Way of connecting to a screen (decide on screen to be used)
+- I2C and UART expansion possibility
+- Fast MCU that can multitask (Fast single core threading is acceptable)
+- Possible to obtain during the chip shortage
+- MCU needs to be cheap-ish
+- Bonus: Bluetooth or LTE expansion possibilities
+
+
+MCU's to consider:
+
+- ATSAM E70 (Microchip)
+	* Has CAN integrated, High Speed USB, Ethernet
+	* Extremely fast (Arm Cortex-M7 300MHz) 
+	* Uart, Spi, i2c++
+	* Lots of ADC and DAC options
+	* ~10$ each, so not that expensive
+- ATSAM E5x (Microchip) 
+	* Comparable to E70, but runs at 120MHz, less ram and such
+	* A little less powerful, but could be a good option
+- PIC32 MZ
+	* Has integrated graphgics controller (GPU) up to WVGA 800x400
+	* Has integrated CAN, USB
+	* Up to 2MB Live update flash, 32MB DDR2 SDRAM, 640KB SRAM
+	* 200MHz core
+	* Built in Crypto engine, 4x 32-bit counters, 9x 16-bit counters
+	* Up to 45 analog inputs!
+	* Cost: ~15$
